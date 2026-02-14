@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="Style.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="icon" href="/Assets/twitter.png">
+    <title>X (twitter) UI CLone</title>
+
+
+
+</head>
+
+<body>
+
+    <!-- LOGIN MODAL -->
+    <div id="loginModal" class="login-modal">
+        <div class="login-container">
+            <div class="login-header">
+                <svg viewBox="0 0 24 24" aria-hidden="true" class="login-logo">
+                    <g>
+                        <path
+                            d="M21.742 21.75l-7.563-11.179 7.056-8.321h-2.456l-5.691 6.714-4.54-6.714H2.359l7.29 10.776L2.25 21.75h2.456l6.035-7.118 4.818 7.118h6.191-.008zM7.739 3.818L18.81 20.182h-2.447L5.29 3.818h2.447z">
+                        </path>
+                    </g>
+                </svg>
+                <h1>Blaze your glory!</h1>
+            </div>
+
+            <div class="login-content">
+                <div class="login-tabs">
+                    <button class="tab-btn active" id="loginTab">Log in</button>
+                    <button class="tab-btn" id="signupTab">Sign up</button>
+                </div>
+
+                <!-- Login Form -->
+                <form id="loginForm" class="auth-form active">
+                    <div class="form-group">
+                        <input type="text" id="loginEmail" placeholder="Email or username" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="password" id="loginPassword" placeholder="Password" required>
+                    </div>
+                    <button type="submit" class="auth-btn">Log in</button>
+                </form>
+
+                <!-- Signup Form -->
+                <form id="signupForm" class="auth-form">
+                    <div class="form-group">
+                        <input type="text" id="signupName" placeholder="Name" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" id="signupUsername" placeholder="Username" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" id="signupEmail" placeholder="Email" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="password" id="signupPassword" placeholder="Password" required>
+                    </div>
+                    <button type="submit" class="auth-btn">Sign up</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- MAIN CONTENT (Hidden initially) -->
+    <div id="mainContent" class="main-content hidden">
+
+    <!-- LEFT SIDEBAR -->
+    <aside class="left-sidebar">
+        <section class="nav_logo">
+            <svg viewBox="0 0 24 24" aria-hidden="true"
+                class="r-4qtqp9 r-yyyyoo r-dnmrzs r-bnwqim r-lrvibr r-m6rgpd r-lrsllp r-1nao33i r-16y2uox r-8kz0gk">
+                <g>
+                    <path
+                        d="M21.742 21.75l-7.563-11.179 7.056-8.321h-2.456l-5.691 6.714-4.54-6.714H2.359l7.29 10.776L2.25 21.75h2.456l6.035-7.118 4.818 7.118h6.191-.008zM7.739 3.818L18.81 20.182h-2.447L5.29 3.818h2.447z">
+                    </path>
+                </g>
+            </svg>
+        </section>
+
+        <section class="Menu_options active">
+            <span class="material-icons">home</span>
+            <h2>Home</h2>
+        </section>
+
+        <section class="Menu_options">
+            <span class="material-icons">search</span>
+            <h2>Explore</h2>
+        </section>
+
+        <section class="Menu_options">
+            <span class="material-icons">notifications</span>
+            <h2>Notifications</h2>
+        </section>
+
+        <section class="Menu_options">
+            <span class="material-icons">email</span>
+            <h2>Chat</h2>
+        </section>
+
+        <section class="Menu_options">
+            <span class="material-icons">g_mobiledata</span>
+            <h2>Grok</h2>
+        </section>
+
+        <section class="Menu_options">
+            <span class="material-icons">bookmark</span>
+            <h2>Bookmarks</h2>
+        </section>
+
+        <section class="Menu_options">
+            <span class="material-icons">science</span>
+            <h2>Creator Studio</h2>
+        </section>
+
+        <section class="Menu_options">
+            <span class="material-icons">person</span>
+            <h2>Profile</h2>
+        </section>
+
+        <section class="Menu_options">
+            <span class="material-icons">more_horiz</span>
+            <h2>More</h2>
+        </section>
+
+        <div class="Menu_options" id="themeToggle">
+            <span class="material-icons" id="themeIcon">dark_mode</span>
+            <h2>Theme</h2>
+        </div>
+
+        <button class="tweet_btn">Post</button>
+
+
+
+    </aside>
+
+
+
+    <!-- MAIN SECTION-->
+    <main>
+
+        <section class="tabs">
+            <input type="radio" id="tab1" name="tab" checked>
+            <label for="tab1">For You</label>
+            <input type="radio" id="tab2" name="tab">
+            <label for="tab2">Following</label>
+
+
+        </section>
+
+        <section class="post-form">
+            <img class="avatar" src="/Assets/profilepic.jpg" alt="User Avatar">
+            <form>
+                <textarea id="tweetInput" placeholder="What's happening?"></textarea>
+                <section class="form-actions">
+                    <section class="icons">
+                        <span class="material-icons">image</span>
+                        <span class="material-icons">gif</span>
+                        <span class="material-icons">poll</span>
+                        <span class="material-icons">emoji_emotions</span>
+                        <span class="material-icons">event</span>
+                        <span class="material-icons">location_on</span>
+                    </section>
+                    <div class="counter-container">
+                        <span id="charCounter">280</span>
+                        <button type="button" id="tweetButton" disabled>Post</button>
+                    </div>
+                </section>
+            </form>
+        </section>
+        <a href="#" class="show-posts">Show All Posts</a>
+
+        <div id="tweetsContainer">
+            <div class="tweet">
+                <img class="avatar" src="/Assets/profilepic.jpg" alt="User Avatar">
+
+                <div class="tweet-body">
+                    <div class="tweet-header">
+                        <span class="name">主杰森</span>
+                        <span class="username">@Lord_Jason</span>
+                        <span class="time">· 1h</span>
+                        <span class="delete-tweet" onclick="deleteTweet(this)"><span
+                                class="material-icons">delete_outline</span></span>
+                    </div>
+
+                    <div class="tweet-text">
+                        Twitter clone looking like the real thing 🔥 #GimmeMyFlowers
+                    </div>
+
+                    <div class="tweet-actions">
+
+                        <div class="left-actions">
+                            <span class="material-icons">chat_bubble_outline</span>
+                            <span class="material-icons">repeat</span>
+                            <span class="material-icons">favorite_border</span>
+                            <span class="material-icons">bar_chart</span>
+                        </div>
+
+                        <div class="right-actions">
+                            <span class="material-icons">bookmark_border</span>
+                            <span class="material-icons">ios_share</span>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="tweet">
+                <img class="avatar" src="/Assets/profilepic.jpg" alt="User Avatar">
+
+                <div class="tweet-body">
+                    <div class="tweet-header">
+                        <span class="name">主杰森</span>
+                        <span class="username">@Lord_Jason</span>
+                        <span class="time">· 5h</span>
+                        <span class="delete-tweet" onclick="deleteTweet(this)"><span
+                                class="material-icons">delete_outline</span></span>
+                    </div>
+
+                    <div class="tweet-text">
+                        Autosave is the greatest invention in modern gaming.<br>
+                        <br>
+                        I still manually save like three times tho just to make sure.
+                    </div>
+
+                    <div class="tweet-actions">
+
+                        <div class="left-actions">
+                            <span class="material-icons">chat_bubble_outline</span>
+                            <span class="material-icons">repeat</span>
+                            <span class="material-icons">favorite_border</span>
+                            <span class="material-icons">bar_chart</span>
+                        </div>
+
+                        <div class="right-actions">
+                            <span class="material-icons">bookmark_border</span>
+                            <span class="material-icons">ios_share</span>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="tweet">
+                <img class="avatar" src="/Assets/profilepic.jpg" alt="User Avatar">
+
+                <div class="tweet-body">
+                    <div class="tweet-header">
+                        <span class="name">主杰森</span>
+                        <span class="username">@Lord_Jason</span>
+                        <span class="time">· 7h</span>
+                        <span class="delete-tweet" onclick="deleteTweet(this)"><span
+                                class="material-icons">delete_outline</span></span>
+                    </div>
+
+                    <div class="tweet-text">
+                        If "commit" makes you think of Git, not relationships, you're officially cooked 😂
+                    </div>
+
+                    <div class="tweet-actions">
+
+                        <div class="left-actions">
+                            <span class="material-icons">chat_bubble_outline</span>
+                            <span class="material-icons">repeat</span>
+                            <span class="material-icons">favorite_border</span>
+                            <span class="material-icons">bar_chart</span>
+                        </div>
+
+                        <div class="right-actions">
+                            <span class="material-icons">bookmark_border</span>
+                            <span class="material-icons">ios_share</span>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="tweet">
+                <img class="avatar" src="/Assets/profilepic.jpg" alt="User Avatar">
+
+                <div class="tweet-body">
+                    <div class="tweet-header">
+                        <span class="name">主杰森</span>
+                        <span class="username">@Lord_Jason</span>
+                        <span class="time">· 18h</span>
+                        <span class="delete-tweet" onclick="deleteTweet(this)"><span
+                                class="material-icons">delete_outline</span></span>
+                    </div>
+
+                    <div class="tweet-text">
+                        The code was working so I decided to add a new feature only for it not to work,
+                        I pressed ctrl + z to go back to the original code but the original code is no longer working 😭
+                    </div>
+
+                    <div class="tweet-actions">
+
+                        <div class="left-actions">
+                            <span class="material-icons">chat_bubble_outline</span>
+                            <span class="material-icons">repeat</span>
+                            <span class="material-icons">favorite_border</span>
+                            <span class="material-icons">bar_chart</span>
+                        </div>
+
+                        <div class="right-actions">
+                            <span class="material-icons">bookmark_border</span>
+                            <span class="material-icons">ios_share</span>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- RIGHT SIDEBAR -->
+
+    <aside class="right-sidebar">
+
+        <div class="search-container">
+            <span class="material-icons search-icon">search</span>
+            <input type="text" placeholder="Search">
+        </div>
+
+        <div class="premium-card">
+            <h3>Subscribe to Premium</h3>
+            <p>Subscribe to unlock new features and if eligible, receive a share of revenue.</p>
+            <button class="premium-btn">Subscribe</button>
+        </div>
+
+
+        <div class="trending-card">
+            <h3>What's happening</h3>
+
+            <div class="trend">
+                <span class="trend-category">Trending in Technology</span>
+                <span class="trend-title">#AIRevolution</span>
+                <span class="trend-tweets">45.2K posts</span>
+            </div>
+
+            <div class="trend">
+                <span class="trend-category">Sports · Trending</span>
+                <span class="trend-title">#ChampionsLeague</span>
+                <span class="trend-tweets">120K posts</span>
+            </div>
+
+            <div class="trend">
+                <span class="trend-category">Politics · Trending</span>
+                <span class="trend-title">Election 2026</span>
+                <span class="trend-tweets">89.5K posts</span>
+            </div>
+
+            <a href="#" class="show-more">Show more</a>
+        </div>
+
+        <div class="follow-card">
+            <h3>Who to follow</h3>
+
+            <div class="follow-suggestion">
+                <img class="avatar" src="/Assets/RM_profile.jpg" alt="User Avatar">
+                <div class="follow-info">
+                    <span class="name">Real Madrid HQ</span>
+                    <span class="username">@RealMadrid</span>
+                </div>
+                <button class="follow-btn">Follow</button>
+            </div>
+
+            <div class="follow-suggestion">
+                <img class="avatar" src="/Assets/MrHMprofile.jpg" alt="User Avatar">
+                <div class="follow-info">
+                    <span class="name">Mr HowMuch</span>
+                    <span class="username">@MrHowMuch</span>
+                </div>
+                <button class="follow-btn">Follow</button>
+            </div>
+
+            <div class="follow-suggestion">
+                <img class="avatar" src="/Assets/F1_profile.jpg" alt="User Avatar">
+                <div class="follow-info">
+                    <span class="name">F1</span>
+                    <span class="username">@FORMULA 1</span>
+                </div>
+                <button class="follow-btn">Follow</button>
+            </div>
+
+            <a href="#" class="show-more">Show more</a>
+        </div>
+
+        <footer class="footer-links">
+            <ul>
+                <li><a href="#">Terms of Service</a></li>
+                <li><a href="#">Privacy Policy</a></li>
+                <li><a href="#">Cookie Policy</a></li>
+                <li><a href="#">Accessibility</a></li>
+                <li><a href="#">Ads info</a></li>
+                <li><a href="#">More</a></li>
+            </ul>
+            <p>© 2026 FAKE TWITTER 😁.</p>
+        </footer>
+
+
+    </aside>
+
+    </div>
+    <!-- End of main content -->
+
+    <script>
+        const toggleBtn = document.getElementById("themeToggle");
+
+        toggleBtn.addEventListener("click", () => {
+            document.body.classList.toggle("dark-mode");
+        });
+
+        // Character counter functionality
+        const tweetInput = document.getElementById("tweetInput");
+        const charCounter = document.getElementById("charCounter");
+        const tweetButton = document.getElementById("tweetButton");
+        const MAX_CHARS = 280;
+        const WARNING_THRESHOLD = 20; // Show red when 20 or fewer characters remaining
+
+        function updateCharCounter() {
+            const currentLength = tweetInput.value.length;
+            const remaining = MAX_CHARS - currentLength;
+
+            // Update counter text
+            charCounter.textContent = remaining;
+
+            // Remove previous classes
+            charCounter.classList.remove("warning", "exceeded");
+
+            // Add appropriate class based on remaining characters
+            if (remaining < 0) {
+                charCounter.classList.add("exceeded");
+                tweetButton.disabled = true;
+            } else if (remaining <= WARNING_THRESHOLD) {
+                charCounter.classList.add("warning");
+                tweetButton.disabled = false;
+            } else {
+                tweetButton.disabled = currentLength === 0;
+            }
+        }
+
+        // Add event listener for input
+        tweetInput.addEventListener("input", updateCharCounter);
+
+        // Initialize counter on page load
+        updateCharCounter();
+
+        // Dynamic tweet posting functionality
+        const tweetsContainer = document.getElementById("tweetsContainer");
+        const userName = "主杰森";
+        const userHandle = "@Lord_Jason";
+        const userAvatar = "/Assets/profilepic.jpg";
+
+        function getTimeAgo() {
+            // Returns "just now" for newly posted tweets
+            // In a real app, you'd calculate the actual time difference
+            return "just now";
+        }
+
+        function createTweetElement(tweetText) {
+            const tweetDiv = document.createElement("div");
+            tweetDiv.className = "tweet";
+
+            tweetDiv.innerHTML = `
+            <img class="avatar" src="${userAvatar}" alt="User Avatar">
+            <div class="tweet-body">
+                <div class="tweet-header">
+                    <span class="name">${userName}</span>
+                    <span class="username">${userHandle}</span>
+                    <span class="time">· ${getTimeAgo()}</span>
+                    <span class="delete-tweet" onclick="deleteTweet(this)"><span class="material-icons">delete_outline</span></span>
+                </div>
+                <div class="tweet-text">${escapeHtml(tweetText)}</div>
+                <div class="tweet-actions">
+                    <div class="left-actions">
+                        <span class="material-icons">chat_bubble_outline</span>
+                        <span class="material-icons">repeat</span>
+                        <span class="material-icons">favorite_border</span>
+                        <span class="material-icons">bar_chart</span>
+                    </div>
+                    <div class="right-actions">
+                        <span class="material-icons">bookmark_border</span>
+                        <span class="material-icons">ios_share</span>
+                    </div>
+                </div>
+            </div>
+        `;
+
+            return tweetDiv;
+        }
+
+        function escapeHtml(text) {
+            const div = document.createElement("div");
+            div.textContent = text;
+            return div.innerHTML.replace(/\n/g, "<br>");
+        }
+
+        function postTweet() {
+            const tweetText = tweetInput.value.trim();
+
+            // Don't post if empty or exceeds limit
+            if (tweetText.length === 0 || tweetText.length > MAX_CHARS) {
+                return;
+            }
+
+            // Create new tweet element
+            const newTweet = createTweetElement(tweetText);
+
+            // Insert at the top of the tweets container
+            tweetsContainer.insertBefore(newTweet, tweetsContainer.firstChild);
+
+            // Clear the textarea
+            tweetInput.value = "";
+
+            // Reset character counter
+            updateCharCounter();
+
+            // Scroll to top to show the new tweet
+            newTweet.scrollIntoView({ behavior: "smooth", block: "nearest" });
+        }
+
+        // Add event listener to Post button
+        tweetButton.addEventListener("click", postTweet);
+
+        // Allow posting with Enter key (Ctrl+Enter or Cmd+Enter)
+        tweetInput.addEventListener("keydown", (e) => {
+            if ((e.ctrlKey || e.metaKey) && e.key === "Enter") {
+                e.preventDefault();
+                if (!tweetButton.disabled) {
+                    postTweet();
+                }
+            }
+        });
+
+        // Delete tweet functionality
+        function deleteTweet(deleteButton) {
+            // Find the parent tweet element
+            const tweet = deleteButton.closest('.tweet');
+
+            if (tweet) {
+                // Add fade-out animation
+                tweet.style.opacity = '0';
+                tweet.style.transform = 'translateX(-20px)';
+                tweet.style.transition = 'opacity 0.3s ease, transform 0.3s ease';
+
+                // Remove tweet after animation
+                setTimeout(() => {
+                    tweet.remove();
+                }, 300);
+            }
+        }
+
+    // Make deleteTweet available globally
+    window.deleteTweet = deleteTweet;
+
+    // Login/Signup functionality
+    const loginModal = document.getElementById("loginModal");
+    const mainContent = document.getElementById("mainContent");
+    const loginTab = document.getElementById("loginTab");
+    const signupTab = document.getElementById("signupTab");
+    const loginForm = document.getElementById("loginForm");
+    const signupForm = document.getElementById("signupForm");
+
+    // Tab switching
+    loginTab.addEventListener("click", () => {
+        loginTab.classList.add("active");
+        signupTab.classList.remove("active");
+        loginForm.classList.add("active");
+        signupForm.classList.remove("active");
+    });
+
+    signupTab.addEventListener("click", () => {
+        signupTab.classList.add("active");
+        loginTab.classList.remove("active");
+        signupForm.classList.add("active");
+        loginForm.classList.remove("active");
+    });
+
+    // Login form submission
+    loginForm.addEventListener("submit", (e) => {
+        e.preventDefault();
+        const email = document.getElementById("loginEmail").value;
+        const password = document.getElementById("loginPassword").value;
+        
+        // Simple validation (in real app, this would check against a database)
+        if (email && password) {
+            // Hide login modal and show main content
+            loginModal.style.display = "none";
+            mainContent.classList.remove("hidden");
+        }
+    });
+
+    // Signup form submission
+    signupForm.addEventListener("submit", (e) => {
+        e.preventDefault();
+        const name = document.getElementById("signupName").value;
+        const username = document.getElementById("signupUsername").value;
+        const email = document.getElementById("signupEmail").value;
+        const password = document.getElementById("signupPassword").value;
+        
+        // Simple validation (in real app, this would create a new user)
+        if (name && username && email && password) {
+            // Hide login modal and show main content
+            loginModal.style.display = "none";
+            mainContent.classList.remove("hidden");
+        }
+    });
+</script>
+
+
+
+</body>
+
+</html>
