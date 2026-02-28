@@ -404,6 +404,10 @@
                 <li><a href="#">More</a></li>
             </ul>
             <p>© 2026 FAKE TWITTER 😁.</p>
+            <button id="logoutBtn" class="logout-btn">
+                <span class="material-icons">logout</span>
+                Log out
+            </button>
         </footer>
 
 
@@ -613,6 +617,25 @@
             loginModal.style.display = "none";
             mainContent.classList.remove("hidden");
         }
+    });
+
+    // Logout functionality
+    const logoutBtn = document.getElementById("logoutBtn");
+    
+    logoutBtn.addEventListener("click", () => {
+        // Show login modal and hide main content
+        loginModal.style.display = "flex";
+        mainContent.classList.add("hidden");
+        
+        // Clear form inputs
+        loginForm.reset();
+        signupForm.reset();
+        
+        // Reset to login tab
+        loginTab.classList.add("active");
+        signupTab.classList.remove("active");
+        loginForm.classList.add("active");
+        signupForm.classList.remove("active");
     });
 </script>
 

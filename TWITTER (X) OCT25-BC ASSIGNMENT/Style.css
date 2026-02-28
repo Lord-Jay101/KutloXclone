@@ -239,7 +239,7 @@ body{
 
 .main-content {
     display: flex;
-    height: 100vh;
+    min-height: 100vh;
     max-width: 1300px;
     margin-left: auto;
     margin-right: auto;
@@ -266,7 +266,9 @@ main {
     max-width: 600px;
 	margin-left: 10px;
     border-right: 1px solid var(--border-color);
-	border-left: 1px solid var(--border-color)
+	border-left: 1px solid var(--border-color);
+	
+	width: 100%;
 }
 
 .search-bar {
@@ -452,6 +454,10 @@ main {
 	border-bottom: 1px solid var(--border-color);
 	cursor: pointer;
 	animation: fadeIn 0.3s ease-in;
+	width: 100%;
+	max-width: 100%;
+	box-sizing: border-box;
+	overflow: hidden;
 }
 
 @keyframes fadeIn {
@@ -479,6 +485,9 @@ main {
 .tweet-body {
 	flex: 1;
 	margin-left: 10px;
+	min-width: 0;
+	max-width: 100%;
+	overflow: hidden;
 }
 
 .tweet-header {
@@ -487,6 +496,9 @@ main {
 	align-items: center;
 	font-size: 15px;
 	position: relative;
+	flex-wrap: wrap;
+	max-width: 100%;
+	overflow: hidden;
 }
 
 .delete-tweet {
@@ -527,6 +539,11 @@ main {
 	margin: 8px 0;
 	font-size: 15px;
 	line-height: 1.4;
+	word-wrap: break-word;
+	overflow-wrap: break-word;
+	word-break: break-word;
+	max-width: 100%;
+	overflow: hidden;
 }
 
 .tweet-actions {
@@ -564,8 +581,9 @@ main {
 
 .right-sidebar {
 	margin-left: 5px;
-	height: 100vh;
-	width: 350px;
+    min-height: 100vh;
+    width: 350px;
+    max-width: 100%;
 	padding: 10px 20px;
 	position: sticky;
 	top: 0;
@@ -605,7 +623,7 @@ main {
 }
 
 .premium-card {
-	width: 350px;
+	width: 100%;
 	border: 1px solid var(--border-color);
 	border-radius: 20px;
 	padding: 15px;
@@ -642,7 +660,7 @@ main {
 
 
 .trending-card {
-	width: 350px;
+	width: 100%;
 	border: 1px solid var(--border-color);
 	border-radius: 20px;
 	padding: 15px;
@@ -697,7 +715,7 @@ main {
 
 
 .follow-card {
-	width: 350px;
+	width: 100%;
 	border: 1px solid var(--border-color);
 	border-radius: 20px;
 	padding: 15px;
@@ -782,7 +800,7 @@ main {
 	padding-bottom: 50px;
 	font-size: 14px;
 	color: var(--bg-color);
-	width: 400px;
+	width: 100%;
 }
 
 .footer-links ul {
@@ -810,6 +828,34 @@ main {
 	margin-top: 10px;
 	font-size: 12px;
 	color: var(--text-color)
+}
+
+.logout-btn {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 8px;
+	width: 100%;
+	margin-top: 15px;
+	padding: 10px;
+	background-color: transparent;
+	border: 1px solid var(--border-color);
+	border-radius: 20px;
+	color: var(--text-color);
+	font-size: 14px;
+	font-weight: bold;
+	cursor: pointer;
+	transition: all 0.2s ease;
+}
+
+.logout-btn:hover {
+	background-color: rgba(244, 33, 46, 0.1);
+	border-color: rgb(244, 33, 46);
+	color: rgb(244, 33, 46);
+}
+
+.logout-btn .material-icons {
+	font-size: 18px;
 }
 
 
@@ -884,11 +930,6 @@ main {
 
 /* ----------- Mobile Phones ----------- */
 @media (max-width: 600px) {
-
-    body {
-        flex-direction: column;
-        height: auto;
-    }
 
     .left-sidebar {
         display: none;
